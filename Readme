@@ -1,0 +1,72 @@
+Am incercat, in vederea efectuarii temei, sa implementez o solutie cat mai
+eficienta, atat din punct de vedere al codului, cat si al executiei.
+Arhiva contine  fisiere : 3 coduri sursa : functions.c, 2048.c si Game.c, doua
+fisere text ce contin date necesare rularii jocului, fisierul header.c, fisierul Makefile si
+Readme. 
+In functions.c am definit functii ce vor fi apelate in cadrul programului, cum
+ar fi : initializarea matricilor, window-urilor, copierea unei matrici,
+initializarea de culori. 
+2048.c contine functiile aferente navigarii prin meniu, si "creierul jocului",
+functia Play_Game, care va prelua input-ul trimis de utilizator si va efectua
+actiunea corespunzatoare.
+In fisierul Game.c regasim codul responsabil pentru mutarea pieselor pe tabla,
+adaugarea de noi piese, precum si functia care verifica daca mai pot fi
+executate miscari valide.
+2048R contine o reprezentare in ASCII Art a numelui jocului, pentru a oferi un
+aspect mai placut interfetei.
+In highscore se va memora scorul maxim obtinut, astfel incat acesta sa nu fie
+pierdut intre doua rulari consecutive ale aplicatiei.
+
+### MENIUL PRINCIPAL ###
+
+La rularea aplicatiei, utilizatorul va avea posibilitatea sa aleaga intre trei
+optiuni : New Game, Resume si Exit. Optiunea Resume va fi disponibila numai in
+cazul in care exista un joc curent in desfasurare. 
+
+### JOCUL 2048  ###
+
+Jocul incepe prin pozitionarea a doua piese, 2 sau 4 pe tabla. Ulterior, prin
+apasarea sagetilor de pe tastatura, piesele se vor muta in directia
+corespunzatoare. In functie de valoarea inscrisa pe piesa, fiecare dintre
+acestea va avea o culoare diferita pentru a usura identificarea celor similare.
+In functie de tasta, se va apela o functie care primeste ca parametru
+variabilele deltaX si deltaY, prin care codificam cele 4 directii de miscare
+posibile astfel :
+stanga : deltaX = -1, deltaY = 0;
+sus : deltaX = 0 , deltaY = -1;
+dreapta : deltaX = 1, deltaY = 0;
+jos : deltaX = 0 , deltaY = 1;
+Ulterior, fiecare patrat va fi mutat recursiv in directia dorita, pana cand va
+ajunge la marginea tablei sau pozitia urmatoare este ocupata de o piesa cu alta
+valoare.
+La fiecare mutare valida, apare o noua piesa pe ecran. In cazul in care nu mai
+exista miscari disponibile, va fi afisat un mesaj pe ecran, care ne va informa
+ca jocul s-a terminat.
+
+In panoul din dreapta sunt enuntate comenzile disponibile, precum si date despre
+joc. 
+Tasta 'U' va anula ultima miscare vailda efectuata.
+Butonul 'R' reseteaza scorul maxim realizat pana in momentul respectiv.
+Prin apasarea tastei 'Q' ne intoarcem in meniul principal.
+
+Daca timp de 10 secunde nu se primeste nicio comanda de la tastatura, jocul va
+efectua automat mutarea in urma careia tabla ar avea numarul maxim de pozitii
+libere.
+
+### PRECIZARI ###
+
+Pentru rularea aplicatiei, am folosit un terminal de dimensiunile 40x120.
+Recomand folosirea acestei dimensiuni pentru a evita afisarea incompleta pe
+ecran a continutului.
+Schema de culori folosita - 256 culori.
+
+### NOTA PERSONALA ###
+
+A fost prima incercare a mea de a realiza un joc si mi-am dat seama ca pana si o
+astfel de aplicatie minimalista presupune un efort pentru a decide structura
+codului si modalitatile de implementare. Ma bucur ca am avut posibilitatea sa
+fac ceva practic si sa folosesc si alte functii si biblioteci decat cele cu care
+eram obisnuit.
+Sper sa va placa!
+
+Bogdan-Alexandru Cionca, 311CC.
